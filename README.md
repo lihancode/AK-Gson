@@ -1,5 +1,5 @@
 # AK-Gson
-Android Kotlin get data by Gson
+Android Kotlin get data by Gson , Retrofit , Anko
 
 # dependencies 
     def anko_version ='0.10.8'
