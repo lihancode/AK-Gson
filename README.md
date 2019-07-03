@@ -11,8 +11,26 @@ Android Kotlin get data by Gson
     def retrofit = '2.6.0'
     implementation "com.squareup.retrofit2:retrofit:$retrofit"
     implementation "com.squareup.retrofit2:converter-gson:$retrofit"
+    
+    
+    
+# Main - Gson
 
-# Main
+      doAsync {
+            val json = URL(https://api.github.com/user).readText()
+            users = Gson().fromJson<ArrayList<User>>(
+                json,
+                object : TypeToken<ArrayList<User>>() {}.type
+            )
+            uiThread {
+                recycler.setHasFixedSize(true)
+                recycler.layoutManager = LinearLayoutManager(this@MainActivity)
+                recycler.adapter = UserAdapter(users)
+            }
+
+        }
+
+# Main - Retrofit
 
             val url = "https://api.github.com/"
             val retrofit = Retrofit.Builder()
